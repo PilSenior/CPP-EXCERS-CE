@@ -1,7 +1,7 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include <Contact.hpp>
+#include "Contacts.hpp"
 
 class Phonebook {
 private:
@@ -13,7 +13,7 @@ public:
     Phonebook();
     void addContact();
     void searchContact();
-    void displayContacts();
+    void formatTable();
 };
 
 #endif

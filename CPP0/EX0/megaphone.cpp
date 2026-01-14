@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: htekdemi <htekdemi@student.42kocaeli.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/14 01:05:38 by htekdemi          #+#    #+#             */
+/*   Updated: 2026/01/14 01:05:42 by htekdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <iostream> // std::cout ve std::endl kullanmak yerine printf() kullanmak yasak 
 #include <cctype>  // std::toupper kullanabilmek icin 

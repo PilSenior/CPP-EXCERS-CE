@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
+#include "Phonebook.hpp"
+
 
 
 int main(){
 
     
-
+    Phonebook phonebook;
     std::string command;
 
     std::cout << "\033[31mWelcome to the Phonebook application!\033[0m" << std::endl;
