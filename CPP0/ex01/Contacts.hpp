@@ -6,7 +6,7 @@
 /*   By: htekdemi <htekdemi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 01:05:49 by htekdemi          #+#    #+#             */
-/*   Updated: 2026/01/14 01:05:52 by htekdemi         ###   ########.fr       */
+/*   Updated: 2026/01/14 05:19:20 by htekdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 class Contact {
 private:
-std::string lastName;
-std::string firstName;
-std::string nickname;
+    std::string lastName;
+    std::string firstName;
+    std::string nickname;
     std::string phoneNumber;
     std::string darkestSecret;
 

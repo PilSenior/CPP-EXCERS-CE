@@ -1,5 +1,5 @@
-#include "PhoneBook.hpp"
 #include <iostream>
+#include "Phonebook.hpp"
 #include <iomanip> // std::setw için (tablo hizalama)
 
 
@@ -7,12 +7,7 @@ Phonebook::Phonebook(){
     this->totalSavedContacts = 0;
 }
 
-void Phonebook::formatTable() {
-    std::string str;
-    if (str.length() > 10)
-        return str.substr(0, 9) + ".";
-    return str;
-}
+
 
 void Phonebook::addContact(){
     std::string str;
@@ -38,7 +33,7 @@ void Phonebook::addContact(){
     str= "";
     while(str == "")
     {
-        strd::cout << "Enter Nickname: ";
+        std::cout << "Enter Nickname: ";
         if (!std::getline(std::cin, str))
             return;
     }
@@ -64,9 +59,15 @@ void Phonebook::addContact(){
 
 }
 
+std::string formatTable(std::string str) {
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
+    return str;
+}
+
 void Phonebook::searchContact(){
 
-    std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+    std::cout << "\033[35m|     Index|First Name| Last Name|  Nickname|" << std::endl;
     std::cout << "|----------|----------|----------|----------|" << std::endl;
 
     int full = this->totalSavedContacts;
@@ -81,22 +82,23 @@ void Phonebook::searchContact(){
         std::cout << "|" << std::setw(10) << formatTable(this->contacts[i].getNickname());
         std::cout << "|" << std::endl;
         i++;
+        std::cout << "|----------|----------|----------|----------|\033[0m" << std::endl;
     }
 
     std::string inputText;
     std::cout << "Please enter the chosen contact index: ";
     if(std::getline(std::cin, inputText))
         return;
-    if(inputText.lenght() == 1 && isdigit(inputText[0]))
+    if(inputText.length() == 1 && isdigit(inputText[0]))
     {
             int i = inputText[0] - '0';
         if (i >= 0 && i < full)
         {
-            std::cout << "First Name: " << this->_contacts[i].getFirstName() << std::endl;
-            std::cout << "Last Name: " << this->_contacts[i].getLastName() << std::endl;
-            std::cout << "Nickname: " << this->_contacts[i].getNickname() << std::endl;
-            std::cout << "Phone: " << this->_contacts[i].getPhoneNumber() << std::endl;
-            std::cout << "Secret: " << this->_contacts[i].getDarkestSecret() << std::endl;
+            std::cout << "First Name: " << this->contacts[i].getFirstName() << std::endl;
+            std::cout << "Last Name: " << this->contacts[i].getLastName() << std::endl;
+            std::cout << "Nickname: " << this->contacts[i].getNickname() << std::endl;
+            std::cout << "Phone: " << this->contacts[i].getPhoneNumber() << std::endl;
+            std::cout << "Secret: " << this->contacts[i].getDarkestSecret() << std::endl;
         }
         else
             std::cout << "Invalid index. Please try again." << std::endl;

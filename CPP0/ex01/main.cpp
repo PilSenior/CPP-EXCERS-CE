@@ -20,13 +20,13 @@ int main(){
         if (!std::getline(std::cin, command))
             break;
         
-        if (command == ("EXIT" || "exit")) {
+        if (command == "EXIT" || command == "exit") {
             break;
         }
-        else if(command == ("ADD" || "add"))
+        else if(command == "ADD" || command == "add")
             phonebook.addContact();
         
-        else if(command == ("SEARCH" || "search"))
+        else if(command == "SEARCH" || command == "search")
             phonebook.searchContact();
         
         else

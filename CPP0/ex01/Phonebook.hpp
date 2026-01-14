@@ -4,6 +4,7 @@
 #include "Contacts.hpp"
 
 class Phonebook {
+    
 private:
     Contact contacts[8];
     int index;
@@ -13,7 +14,7 @@ public:
     Phonebook();
     void addContact();
     void searchContact();
-    void formatTable();
+    
 };
 
 #endif
