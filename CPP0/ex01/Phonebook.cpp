@@ -5,9 +5,29 @@
 
 Phonebook::Phonebook(){
     this->totalSavedContacts = 0;
+    std::cout << "Phonebook created!" << std::endl;
 }
 
 
+int checkınput(std::string str){
+
+    int len = 0;
+    len = str.length();
+    int checkAlph = 0;
+    int checkDigit = 0;
+        for(size_t i = 0; i < str.length(); i++){
+            if((str[i] <= 'z' && str[i] >= 'a') || (str[i] <= 'Z' && str[i] >= 'A'))
+                checkAlph++;
+            else if((str[i] <= '9' && str[i] >= '0'))
+                checkDigit++;
+        }
+    if(checkAlph == len)
+        return 1;
+    if(checkDigit == len)
+        return -1;
+
+    return 0;
+}
 
 void Phonebook::addContact(){
     std::string str;
@@ -17,41 +37,81 @@ void Phonebook::addContact(){
     str = "";
     while(str == "")
     {
-        std::cout << "Enter First Name: ";
-        if (!std::getline(std::cin, str))
-            return;
+        while(true) {
+             std::cout << "Enter First Name: ";
+            std::getline(std::cin, str);
+            if (str.empty() || !checkınput(str))
+            {
+                 std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
+                continue;
+            }
+            else
+                break;
+        }
     }
     this->contacts[pos].setFirstName(str);
     str = "";
     while(str == "")
     {
-        std::cout << "Enter Last Name: ";
-        if (!std::getline(std::cin, str))
-            return;
+        while(true) {
+             std::cout << "Enter Last Name: ";
+            std::getline(std::cin, str);
+            if (str.empty() || !checkınput(str))
+            {
+                 std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
+                continue;
+            }
+            else
+                break;
+        }
     }
     this->contacts[pos].setLastName(str);
     str= "";
     while(str == "")
     {
-        std::cout << "Enter Nickname: ";
-        if (!std::getline(std::cin, str))
-            return;
+        while(true) {
+            std::cout << "Enter Nickname: ";
+            std::getline(std::cin, str);
+            if (str.empty() || !checkınput(str))
+            {
+                 std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
+                continue;
+            }
+            else
+                break;
+        }
     }
     this->contacts[pos].setNickname(str);
     str = "";
     while(str == "")
     {
-        std::cout << "Enter Phone Number: ";
-        if (!std::getline(std::cin, str))
-            return;
+        while(true) {
+             std::cout << "Enter Phone Number: ";
+            std::getline(std::cin, str);
+            if (str.empty() || checkınput(str) != -1)
+            {
+                std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
+                continue;
+            }
+            else
+                break;
+        }
     }
     this->contacts[pos].setPhoneNumber(str);
     str = "";
     while(str == "")
     {
-        std::cout << "Enter Darkest Secret: ";
-        if (!std::getline(std::cin, str))
-            return;
+        while(true) {
+            std::cout << "Enter Darkest Secret: ";
+            std::getline(std::cin, str);
+            if (str.empty() || !checkınput(str))
+            {
+                 std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
+                continue;
+            }
+            else
+                break;
+        }
     }
     this->contacts[pos].setDarkestSecret(str);
     this->totalSavedContacts++;
@@ -87,7 +147,7 @@ void Phonebook::searchContact(){
 
     std::string inputText;
     std::cout << "Please enter the chosen contact index: ";
-    if(std::getline(std::cin, inputText))
+    if(!std::getline(std::cin, inputText))
         return;
     if(inputText.length() == 1 && isdigit(inputText[0]))
     {
