@@ -1,6 +1,0 @@
-Hello World!
-This is a test file.
-Hello again and again.
-Hello CPP!
-The word Hello appears multiple times.
-But world does not always follow hello.
