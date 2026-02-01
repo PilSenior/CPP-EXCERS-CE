@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contats.cpp                                        :+:      :+:    :+:   */
+/*   Contacts.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htekdemi <htekdemi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 05:19:40 by htekdemi          #+#    #+#             */
-/*   Updated: 2026/01/14 05:19:41 by htekdemi         ###   ########.fr       */
+/*   Updated: 2026/02/01 17:03:16 by htekdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void Contact::setPhoneNumber(std::string str) {
 void Contact::setDarkestSecret(std::string str) {
     this->darkestSecret = str;
 }
-
-// --- GETTER METODLARI (Veri Okuma) ---
 
 std::string Contact::getFirstName() {
     return this->firstName;

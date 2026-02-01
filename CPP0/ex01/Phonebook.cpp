@@ -16,7 +16,7 @@ int checkınput(std::string str){
     int checkAlph = 0;
     int checkDigit = 0;
         for(size_t i = 0; i < str.length(); i++){
-            if((str[i] <= 'z' && str[i] >= 'a') || (str[i] <= 'Z' && str[i] >= 'A'))
+            if((str[i] <= 'z' && str[i] >= 'a') || (str[i] <= 'Z' && str[i] >= 'A') || (str[i] == ' ' ))
                 checkAlph++;
             else if((str[i] <= '9' && str[i] >= '0'))
                 checkDigit++;
@@ -40,7 +40,7 @@ void Phonebook::addContact(){
         while(true) {
              std::cout << "Enter First Name: ";
             std::getline(std::cin, str);
-            if (str.empty() || !checkınput(str))
+            if (str.empty() || checkınput(str) != 1)
             {
                  std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
                 continue;
@@ -56,7 +56,7 @@ void Phonebook::addContact(){
         while(true) {
              std::cout << "Enter Last Name: ";
             std::getline(std::cin, str);
-            if (str.empty() || !checkınput(str))
+            if (str.empty() || checkınput(str) != 1)
             {
                  std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
                 continue;
@@ -72,7 +72,7 @@ void Phonebook::addContact(){
         while(true) {
             std::cout << "Enter Nickname: ";
             std::getline(std::cin, str);
-            if (str.empty() || !checkınput(str))
+            if (str.empty())
             {
                  std::cout << "\033[31mInvalid input. Please try again.\033[0m" << std::endl;
                 continue;
@@ -142,7 +142,7 @@ void Phonebook::searchContact(){
         std::cout << "|" << std::setw(10) << formatTable(this->contacts[i].getNickname());
         std::cout << "|" << std::endl;
         i++;
-        std::cout << "|----------|----------|----------|----------|\033[0m" << std::endl;
+        std::cout << "|----------|----------|----------|----------|" << std::endl;
     }
 
     std::string inputText;
@@ -158,7 +158,7 @@ void Phonebook::searchContact(){
             std::cout << "Last Name: " << this->contacts[i].getLastName() << std::endl;
             std::cout << "Nickname: " << this->contacts[i].getNickname() << std::endl;
             std::cout << "Phone: " << this->contacts[i].getPhoneNumber() << std::endl;
-            std::cout << "Secret: " << this->contacts[i].getDarkestSecret() << std::endl;
+            std::cout << "Secret: " << this->contacts[i].getDarkestSecret() << "\033[0m"<< std::endl;
         }
         else
             std::cout << "Invalid index. Please try again." << std::endl;
