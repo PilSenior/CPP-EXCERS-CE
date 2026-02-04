@@ -11,7 +11,7 @@ int main(){
     std::string command;
 
     std::cout << "\033[31mWelcome to the Phonebook application!\033[0m" << std::endl;
-    std::cout << "\033[33mAvailable commands:\nADD: You can add a new contact\nSEARCH: You can search and delete for a contacts you have\nEXIT: You can exit the application.\033[0m" << std::endl;
+    std::cout << "\033[33mAvailable commands:\nADD: You can add a new contact\nSEARCH:You can search and delete for a contacts you have\nEXIT: You can exit the application.\033[0m" << std::endl;
 
     while(true)
     {

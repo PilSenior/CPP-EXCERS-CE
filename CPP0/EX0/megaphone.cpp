@@ -6,12 +6,12 @@
 /*   By: htekdemi <htekdemi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 01:05:38 by htekdemi          #+#    #+#             */
-/*   Updated: 2026/01/14 01:05:42 by htekdemi         ###   ########.fr       */
+/*   Updated: 2026/02/04 19:00:01 by htekdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> // std::cout ve std::endl kullanmak yerine printf() kullanmak yasak 
-#include <cctype>  // std::toupper kullanabilmek icin 
+#include <iostream>
+#include <cctype>
 
 int main (int argc, char **argv) {
     if(argc > 1)
@@ -20,7 +20,8 @@ int main (int argc, char **argv) {
         {
             for(int j = 0; argv[i][j] != '\0'; j++)
             {
-                   std::cout << static_cast<char>(std::toupper(argv[i][j]));
+                argv[i][j] = std::toupper(argv[i][j]);
+                std::cout << argv[i][j];
             }
             std::cout << " ";
         }
