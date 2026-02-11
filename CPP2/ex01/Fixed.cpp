@@ -1,0 +1,67 @@
+#include "Fixed.hpp"
+
+Fixed::Fixed() : _value(0) {
+    std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed &other) {
+    std::cout << "Copy constructor called" << std::endl;
+    // Mevcut kopyalama mantığını burada işletiyoruz
+    *this = other; 
+}
+
+Fixed &Fixed::operator=(const Fixed &other) {
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &other) {
+        this->_value = other.getRawBits();
+    }
+    return *this;
+}
+
+int Fixed::getRawBits(void) const {
+    std::cout << "getRawBits member function called" << std::endl;
+    return this->_value;
+}
+
+void Fixed::setRawBits(int const raw) {
+    this->_value = raw;
+}
+
+// Destructor
+
+Fixed::~Fixed() {
+    std::cout << "Destructor called" << std::endl;
+}
+
+// Int Constructor
+Fixed::Fixed(const int n)
+{
+    std::cout << "Int constructor called" << std::endl;
+    this->_value = n << _fractionalBits; // n * 2^8
+}
+
+// Float Constructor
+Fixed::Fixed(const float f)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this->_value = roundf(f * (1 << _fractionalBits)); // f * 256 ve yuvarla
+}
+
+// Fixed -> Float
+float Fixed::toFloat(void) const
+{
+    return (float)this->_value / (1 << _fractionalBits); // ham değer / 256
+}
+
+// Fixed -> Int
+int Fixed::toInt(void) const
+{
+    return this->_value >> _fractionalBits; // ham değer / 256 (ondalık gider)
+}
+
+// << Operatörü (Sınıfın dışında tanımlanır)
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
+{
+    out << fixed.toFloat(); // Ekrana her zaman float haliyle basıyoruz
+    return out;
+}

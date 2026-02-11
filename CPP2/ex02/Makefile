@@ -1,8 +1,8 @@
 NAME = fixed
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = Fixed.cpp main.cpp
-OBJ = $(SRC:.cpp=.o)
+SRCS = main.cpp Fixed.cpp
+OBJ = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
