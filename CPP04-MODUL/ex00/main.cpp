@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chnaranj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: htekdemi <htekdemi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 17:27:36 by chnaranj          #+#    #+#             */
-/*   Updated: 2026/02/07 17:27:39 by chnaranj         ###   ########.fr       */
+/*   Updated: 2026/02/15 01:44:18 by htekdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@
 
 int main()
 {
-    std::cout << "--- SUBJECT TESTS ---" << std::endl;
-    const Animal* meta = new Animal();
+    std::cout << RED "--- SUBJECT TESTS ---" RESET<< std::endl;
+    const Animal* cls = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
     std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
+    std::cout << BLUE << i->getType() << " " RESET << std::endl;
     
     i->makeSound();
     j->makeSound();
-    meta->makeSound();
+    cls->makeSound();
 
     delete i;
     delete j;
-    delete meta;
+    delete cls;
 
-    std::cout << "\n--- WRONG ANIMAL TESTS ---" << std::endl;
+    std::cout << RED "\n--- WRONG ANIMAL TESTS ---" RESET<< std::endl;
     const WrongAnimal* wrongMeta = new WrongAnimal();
     const WrongAnimal* wrongCat = new WrongCat();
 

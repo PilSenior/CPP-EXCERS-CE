@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chnaranj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: htekdemi <htekdemi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 17:26:43 by chnaranj          #+#    #+#             */
-/*   Updated: 2026/02/07 17:26:45 by chnaranj         ###   ########.fr       */
+/*   Updated: 2026/02/15 01:40:55 by htekdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 Cat::Cat()
 {
     this->type = "Cat";
-    std::cout << "Cat Default Constructor called" << std::endl;
+    std::cout << CYAN "Cat Default Constructor called" RESET << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
-    std::cout << "Cat Copy Constructor called" << std::endl;
+    std::cout << CYAN "Cat Copy Constructor called" RESET << std::endl;
     *this = other;
 }
 
 Cat& Cat::operator=(const Cat& other)
 {
-    std::cout << "Cat Copy Assignment Operator called" << std::endl;
+    std::cout << CYAN "Cat Copy Assignment Operator called" RESET << std::endl;
     if (this != &other)
     {
         Animal::operator=(other);
@@ -36,10 +36,10 @@ Cat& Cat::operator=(const Cat& other)
 
 Cat::~Cat()
 {
-    std::cout << "Cat Destructor called" << std::endl;
+    std::cout << CYAN "Cat Destructor called" RESET << std::endl;
 }
 
 void Cat::makeSound() const
 {
-    std::cout << "Meow! Meow!" << std::endl;
+    std::cout << CYAN "Meow! Meow!" RESET << std::endl;
 }
